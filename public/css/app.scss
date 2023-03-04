@@ -1,0 +1,112 @@
+ @import "~bootstrap/scss/bootstrap";
+
+ body {
+  background-color: #f2f2f2;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 40px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+article {
+  font-size: 24px;
+  line-height: 27px;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #2980b9;
+  color: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+#regForm {
+  background: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;  
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+}

@@ -1,0 +1,32 @@
+{
+  "name": "lmsnj",
+  "version": "1.0.0",
+  "description": "Leraning Management System developed with Nodejs,MongoDb, Expres and React",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
+  "keywords": [
+    "Learning",
+    "Management",
+    "System",
+    "Nodejs",
+    "Express"
+  ],
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.0.0",
+    "express-session": "^1.17.3",
+    "helmet": "^6.0.1",
+    "mocha": "^10.2.0",
+    "mongoose": "^6.9.1",
+    "nodemailer": "^6.9.1",
+    "sass": "^1.57.1"
+  },
+  "author": "Babatope Eyitayo",
+  "license": "ISC"
+}
