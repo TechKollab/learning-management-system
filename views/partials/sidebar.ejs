@@ -1,0 +1,19 @@
+<aside class="side-container large">
+  <div class="image-circle" style="margin-top: 30px;">
+    <% if(imgurl){%>
+      <img src="<%= imgurl %>" />
+      <%}else{%>
+        <span class="fa fa-user"></span>
+      <%}%>
+  </div>
+    <ul class="sidebar-link">
+
+      
+      <li><i class="fa fa-bars"></i><a href="/dashboard">Dashboard</a></li>
+      <li><i class="fa fa-bold fa-book"></i><a href="/courses">Courses</a></li>
+      <li><i class="fa fa-fill fa-tasks"></i><a href="/task">Task</a></li>
+      
+      <li><i class="fa  fa-check"></i><a href="/studentaccount">Account</i></a></li>
+      <li><i class="fa  fa-sign-out"></i><a href="/logout">Logout</i></a></li>
+    </ul>
+  </aside>

@@ -1,0 +1,170 @@
+<%- include('./partials/loginheader') %>
+    <article class="container">
+      <%- include('./partials/sidebar') %>
+      <section class="main-container">
+         <div class="section-header">
+         
+           <div style="color: #6E8288;"> <h3>Hi, <%= firstname %></h3></div> 
+         
+        
+       </div>
+      <main class="account">
+        <div class="student-info">
+          <h2>Your Bio</h2>
+          <div class="image-circle">
+            <% if(studentInfo.imageurl){%>
+              <img src="<%= studentInfo.imageurl %>" />
+              <%}else{%>
+                <span class="fa fa-user"></span>
+              <%}%>
+          </div>
+        <p>Firstname:&nbsp; <%= studentInfo.firstname %></p>
+        <p>Lastname:&nbsp; <%= studentInfo.lastname %></p>
+        <p>Email:&nbsp; <%= studentInfo.email %></p>
+        <p>Gender:<%= studentInfo.gender %></p>
+          <p>Date of Birth:<%= studentInfo.dateofbirth %></p>
+
+        <button onclick="showInfo()">Edit</button>
+      </div>
+      <div class="edit-info">
+        <form  id="editForm" method="POST"  action="/updatestudent">
+        <div class="image-circle">
+      
+       
+          <% if(studentInfo.imageurl){%>
+            <img id="userImg" src="<%= studentInfo.imageurl %>" />
+              <span class="fa fa-plus" ></span>
+            <%}else{%> 
+
+              <img id="userImg" src=" " /> 
+              
+            <%}%>
+            
+            <input
+            type="file"
+            id="userpic"
+            name="userpic"
+            multiple
+            accept="image/*"
+            class="visually-hidden" onchange="handleFile(event)" formenctype="multipart/form-data" />
+            <label id="uplabel" for="userpic">Upload</label>
+        </div>
+          <div class="email-bar">
+            <h4>Firstname </h4>
+            <input type="text" name="firstname" value="<%= studentInfo.firstname %>" id="firstname" required/>
+          </div>
+          <div class="email-bar">
+            <h4>Lastname</h4>
+            <input type="text" name="lastname" value="<%= studentInfo.lastname %>" id="Lastname" required/>
+          </div>
+        <div class="email-bar">
+          <h4>Date of Birth</h4>
+          <input type="date" name="dateofbirth" value="<%= studentInfo.dateofbirth %>" id="date0fBirth" required/>
+        </div>
+        <div class="email-bar">
+          <h4>Gender </h4>
+          <select name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+          <div class="btn-group">
+        <button class="update-info" type="submit" >Update</button><button class="update-info" onclick="updateCancel(event)">Cancel</button>
+        </div>
+        </form>
+
+      </div>
+
+        
+
+     </main>
+      </section>
+      <!--<section>
+      </section>-->
+    </article>
+    <script src="/../js/main.js"></script>
+    <script>
+      var imgTag=document.querySelector('#userImg')
+      const info=document.querySelector('.edit-info')
+      var input=document.querySelector('#userpic')
+      const showInfo=()=>{
+        window.scrollTo(0,0)
+      info.style.display='block'
+      }
+      const handleFile=(e)=>{
+        var input=document.querySelector('#userpic')
+        const file=input.files[0]
+      const reader= new FileReader()
+      const userImg=document.createElement("input") 
+        reader.onload=(e)=>{
+          imgTag.src=e.target.result
+          userImg.setAttribute('name','imgurl')
+          userImg.setAttribute('hidden','hidden')
+          userImg.setAttribute("value",e.target.result)
+          imgTag.insertAdjacentElement('afterend',userImg)
+        }
+       
+       
+        reader.readAsDataURL(file)
+
+    }
+   
+      const updateCancel=(e)=>{
+        info.style.display='none'
+      }
+
+/*
+      const handleSubmit=(e)=>{
+        e.preventDefault()
+        e.stopPropagation()
+        const formdata= new FormData()
+        var input=document.querySelector('#userpic')
+        const file=input.files[0]
+        console.log("handle submit")
+        
+        
+        const form=document.querySelector('form')
+  
+        const reader= new FileReader()
+        var imgFile;
+        reader.onload=(e)=>{
+          imgFile=e.target.result
+          
+        }
+       
+       
+        reader.readAsBinaryString(file)
+        formdata.append('userpic',imgFile)
+        formdata.append('firstname',"eyitayo")
+        fetch("/updatestudent",{
+          method:"POST",
+
+          body:formdata
+        }).then((response)=>(response.json))
+          .then((result)=>{
+            console.log(result)
+          }).catch((error)=>{
+            console.log(error)
+          })
+        }
+      
+        console.log(formdata)
+       
+        const req= new XMLHttpRequest();
+        req.open("POST","/updatestudent");
+
+        req.onload=(e)=>{
+          console.log(e.loaded,req.status)
+        }
+        req.onerror=(error)=>{
+          console.log(error)
+        }
+       
+       req.send(formdata)
+      
+        
+      }
+      */
+    </script>
+  </body>
+</html>

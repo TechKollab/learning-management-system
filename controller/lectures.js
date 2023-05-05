@@ -1,32 +1,52 @@
-import {Lectures} from "../model/schema.js"
+import { mongoose } from "mongoose"
+import {Assessment, Lectures} from "../model/schema.js"
 
 
     const viewLectures=  async (req,res)=>{
-        const title= req.params.title
-        try{
-        const record= await Lectures.findOne({title:title})
-        res.json(record)
-        }catch(error){
-            res.json("An error Occured")
-        }
     
+        const id=req.params.id
+        try{
+            const records= await Lectures.findOne({_id:id },{_id:1,title:1,duration:1})
+            res.render('lectures',{lectures:records})
+            }catch(error){
+                res.render('error',{errorCode:'404',errorMsg:"Server Error"})
+            }
         }
     const allLectures=  async (req,res)=>{
-            try{
-            const records= await Lectures.find({ },{_id:0,title:1,duration:1})
-            res.json(records)
+        const coursetitle=req.params.title
+        const id=req.params.id
+        
+        try{
+    
+            const lecture= await Lectures.find({title:coursetitle})
+            
+            res.render('lectures',{lectures:lecture,title:"Lectures",firstname:req.session.user.firstname,  imgurl:req.session.user.imgurl,    coursetitle})
             }catch(error){
-                res.json("An error Occured")
+                console.log(error)
+                res.render('error',{errorCode:'404',errorMsg:"Server Error"})
             }
-        
             }
-        
+            const task=  async (req,res)=>{
+                
+                
+                
+                try{
+            
+                    
+                    
+                    res.render('task',{title:"Task",firstname:req.session.user.firstname,  imgurl:req.session.user.imgurl   })
+                    }catch(error){
+                        console.log(error)
+                        res.render('error',{errorCode:'404',errorMsg:"Server Error"})
+                    }
+                    }   
     
 
     export {
     
         viewLectures,
         allLectures,
+        task
         
     }
 

@@ -1,0 +1,78 @@
+<%- include('./partials/loginheader') %>
+    <article class="container">
+      <%- include('./partials/sidebar') %>
+      <section class="main-container">
+
+         <div class="section-header">
+          <h3>Hi <%= firstname %></h3>  
+        </div>
+      <main>
+        <div class="action-msg"></div>
+        <div class="box-container">
+          <% courses.forEach(function(course){%>
+            <div class="box">
+              <div class="image " id="ui-design">
+                <img class="courseimg"   src="<%= course.imgurl %>" />
+              </div>
+              <div class="content">
+              <h3 class="course"><%=course.title %></h3>
+              <p><%= course.description %></p>
+             
+            <div>
+                <button class="btn" onclick="registerCourse(`<%=course.title%>` , `<%=course.id %>` )" >Enroll now </button>
+              </div>
+              </div>
+          </div>
+        
+         <% });%>
+        </div>
+              
+          
+        
+      </div>
+     </main>
+      </section>
+      <!--<section>
+      </section>-->
+    </article>
+    <script src="/js/main.js"></script>
+    <script>
+
+      const registerCourse=  async (title,id)=>{
+        try{
+         let res= await fetch(`/registercourse/${title}/${id}`)
+       
+        const msgdata= await res.json()
+           
+          window.scrollTo(0,0)
+          const msg=document.querySelector('.action-msg')
+          msg.style.display='block'
+          const text=document.createTextNode(msgdata)
+          msg.appendChild(text)
+          msg.style.backgroundColor='green'
+          msg.style.color="white"
+          setTimeout(()=>{
+            msg.removeChild(text)
+           msg.style.display="none"
+          },"3000")
+          
+        }
+        catch(error){
+          window.scrollTo(0,0)
+          const msg=document.querySelector('.action-msg')
+            const text=document.createTextNode("An error as Occured")
+            msg.appendChild(text)
+            msg.style.backgroundColor='red'
+            msg.style.color="white"
+            setTimeout(()=>{
+            msg.removeChild(text)
+           msg.style.display="none"
+          },"3000")
+          
+            console.log(error)
+        }
+        
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+.error{
+    display: flex;
+    flex-direction: column;
+    margin: 10rem auto;
+    width:50%;
+
+    
+}
+.error h1{
+    width: 70%;
+    margin:1rem auto ;
+    font-size: 4rem;
+    text-align: center;
+}
+.error p{
+    font-size: 1rem;
+   text-align: center;
+}
+.error button{
+    margin:1rem auto ;
+    width:50%;
+    height: 40px;
+    border-radius: 10px; 
+    border-style:none;
+    background-color: red;
+    color: #fff;
+
+}
+@media (min-width:600px){
+   .error{
+    margin: 10rem auto;
+   }
+    .error p{
+        font-size: 1.5rem;
+    }
+}
+@media (min-width:800px){
+    .error{
+    
+        margin: 5rem auto;     
+    }
+    .error h1{
+        font-size: 8rem;
+    }
+    .error p{
+        font-size: 3rem;
+    }
+    .error button{
+        font-size: 3rem;
+      width:50%;
+      height: 100px;
+      border-radius:20px ;
+    }
+}
+@media (min-width:1000px){
+    .error button{
+        font-size: 2rem;
+      width:40%;
+      height: 80px;
+    }
+
+}

@@ -1,0 +1,38 @@
+
+        
+        <%- include('./partials/loginheader') %>
+    <article class="container">
+      <%- include('./partials/sidebar') %>
+      <section class="main-container">
+
+         <div class="section-header">
+          <h3>Hi <%= firstname %></h3>  
+         </div>
+      <main>
+       
+            
+          
+            <h2>You dont have any Task at the moment</h2>
+           
+
+          
+        
+      </div>
+     </main>
+      </section>
+      <!--<section>
+      </section>-->
+    </article>
+    <script src="/js/main.js"></script>
+    <script>
+      const playLecture=(url)=>{
+        const vid=document.querySelector(".vidlec")
+        vid.style.display='block'
+        vid.setAttribute("src",`${url}`)
+      }
+    </script>
+  </body>
+</html>
+
+
+ 

@@ -1,35 +1,53 @@
-<%- include('./partials/header') %>
-<div class="container">
-    <h2>Registration Form</h2>
-    <form action="/register" method="POST">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/login.css" rel="stylesheet" />
+    <title>Login</title>
+  </head>
+  <body>
+    <section class="login-container">
+      <div class="box">
+        <form method="POST" action="/login">
+        <h2>Login</h2>
+        <p class="box-head">Kindly fill your details to create your account</p>
+        <div class="email-bar">
+          <h4>Firstname <strong style="color: red">*</strong></h4>
+          <input type="text" name="firstname" id="firstname" required/>
+        </div>
+        <div class="email-bar">
+          <h4>Lastname <strong style="color: red">*</strong></h4>
+          <input type="text" name="Lastname" id="Lastname" required/>
+        </div>
+        <div class="email-bar">
+          <h4>Email <strong style="color: red">*</strong></h4>
+          <input type="email" name="email" id="email" required/>
+        
+        <div class="password-bar">
+          <h4>Password <strong style="color: red">*</strong></h4>
+          <input type="password" name="password" required="true" />
+          <p id="matched"></p>
+          <h4>Confirm Password <strong style="color: red">*</strong></h4>
+          <input type="password" name="confirm-password"id="confirm-password" required="true" />
+        </div>
       </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <div class="email-bar">
+        <h4>Date of Birth <strong style="color: red">*</strong></h4>
+        <input type="date" name="dateOfBirth" id="date0fBirth" required/>
       </div>
-      <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-      </div>
-      <div class="form-group">
-        <label for="dob">Date of Birth:</label>
-        <input type="date" class="form-control" id="dob" name="dob">
-      </div>
-      <div class="form-group">
-        <label for="gender">Gender:</label>
-        <select class="form-control" id="gender" name="gender">
-          <option>Male</option>
-          <option>Female</option>
+      <div class="email-bar">
+        <h4>Gender <strong style="color: red">*</strong></h4>
+        <select name="gender" class="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
       </div>
-      <div class="checkbox">
-        <label><input type="checkbox" name="remember"> Remember me</label>
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-  </div>
-  
-  
+        
+        <button type="submit">Create Account</button></a>
+      </form>
+    </section>
+  </body>
+</html>

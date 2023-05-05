@@ -12,18 +12,24 @@ export const loginStudent=  async (req,res)=>{
 
     }
     else{
-        Lecturers.find({email:email},function(err,lecturer){
-                 if(lecturer){
-                    if(lecturer.validPassword()){
-                        res.json("Lecturerr Succesfully Login")
-                    }
-                    else{
-                        res.json("Invalid Password")
-                    }
-                 }
-                 else{
-                    res.json("No Lecturer found")
-                 }
+        Lecturers.findOne({email:email},function(err,lecturer){
+            if(!lecturer.email){
+                                            
+                res.render('login',{
+                    title:'login',message:"Student does not exist"
+                })
+            }
+            else{
+                
+                if(validPassword(pwd,lecturer.password,lecturer.salt)){
+                   req.session.user=lecturer.firstname
+                   req.session.role="lecturer"
+                   res.redirect('/admindashboard')
+                }
+                else{
+                    res.render('adminlogin',{title:'login',message:'Password does not match'})
+                }
+            }
         })
 
     }

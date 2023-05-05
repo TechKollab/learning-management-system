@@ -1,0 +1,439 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+:root{
+  --hover:#67828d;
+  --main:#25434d;
+  --black:#444;
+  --light-color:#777;
+  --box-shadow:.5rem .5rem 0 rgba(32, 48, 53, 0.2);
+  --text-shadow:.4rem .4rem 0 rgba(0, 0, 0, .2);
+  --border:.2rem solid #16313a;
+
+}
+html{
+  font-size: 16px;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+article{
+  display: flex;
+  flex-direction: row;
+  color:var(--main)
+}
+.container{
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  padding: 2rem;
+}
+.side-container{
+
+  display: none;
+
+}
+.header .logo{
+  font-size: 1.5rem;
+  
+}
+.header .logo i{
+  color: var(--main);
+  margin-right: 0.5rem;
+}
+#menu-btn{
+  font-size: 1.5rem;
+ 
+  }
+  
+
+.main-container{
+  width:95%;
+  
+margin:1rem auto;
+}
+main{
+  margin-top:2rem
+}
+.main-boxes{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width:100%;
+  font-size: 1.5rem;
+  
+}
+.image-box img{
+  width:100%;
+}
+.label-con{
+  padding: 1rem;
+}
+.label-con label{
+  font-size: 1.5rem;
+}
+progress{
+  width:100%;
+  
+}
+.assgn{
+  margin: 1rem;
+}
+.ass-tests{
+  padding:1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: var(--main);
+  
+}
+.box-container{
+  display:flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.box .content{
+  display: flex;
+  flex-direction: column;
+  
+ 
+}
+.home{
+  display: flex;
+  flex-direction: column;
+}
+.facility{
+  display: none;
+}
+#menu-btn{
+display: initial;
+}
+.header .navbar{
+  position: absolute;
+  top: 115% ;
+  right: 2rem;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow);
+  width:20rem;
+  border: var(--border);
+  background: #fff;
+  transform: scale(0);
+  opacity:0;
+  transform-origin: top right;
+  transition: none;
+}
+.header .navbar.active{
+  transform: scale(1);
+  opacity:1;
+  transform-origin: top right;
+  transition: .2s ease-out;
+}
+.header .navbar a{
+  font-size: 1.5rem;
+  display: block;
+  margin: 1.5rem;
+}
+a.btn{
+  text-align: center;
+  width:100px;
+  font-size: 1rem;
+}
+.image{
+  height: 30vh;
+}
+@media (min-width:900px){
+
+  .navbar{
+    display:none;
+  }
+  .side-container{
+    display:flex;
+    flex-direction: column;
+    gap:2rem;
+  }
+.side-container ul{
+  display:flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap:5rem;
+  list-style: none;
+ justify-content: center;
+
+  
+}
+a{
+  color: var(--main);
+}
+.side-container ul li a:link {
+  text-decoration: none;
+  color:var(--main);
+  font-size: 1.5rem;
+}
+.side-container ul li:hover {
+  background-color:var(--hover);
+  border-radius: 8px;
+  
+}
+.ph-squares-four,
+.ph-book,
+.ph-user,
+.ph-at,
+.ph-star,
+.ph-check,
+.ph-sign-out {
+  margin-right: 8px;
+  font-size: 16px;
+}
+.section-header {
+  display: flex;
+ flex-direction: row;
+  padding:1.5rem;
+  border: solid 1px #e5e5e5;
+  padding: 1rem;
+}
+.section-header h3{
+  font-size: 1.5rem;
+  color: var(--main);
+  width: 100%;
+}
+.section-header span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 2rem;
+}
+.user-info {
+  display: flex;
+ 
+}
+main{
+  width: 100%;
+}
+
+
+.box-con{
+  display: flex;
+  flex-direction: column;
+
+  gap:5px;
+
+}
+.label-con{
+  padding: 1rem;
+}
+
+
+  .main-container{
+    width:80%;
+  }
+  .main-boxes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .box-con{
+    width:100%;
+  }
+  .assgn{
+    margin-top: 2rem;
+  }
+  .ass-tests{
+    font-size: 2rem;
+  }
+  .ass-tests button{
+    font-size: 2rem;
+  }
+  .box-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .box-container .content{
+   height:300px;
+
+  }
+  h3.course{
+    font-size: 1.5rem;
+  }
+  .box-container p{
+    font-size: 1rem;
+  }
+}
+/* account page styles */
+
+.student-info h2{
+ font-size: 1.5rem;
+}
+.student-info p{
+       font-size: 1.1rem;
+}
+.student-info button,.update-info{
+  height: 40px;
+  border-radius: 10px;
+  font-size: 1rem;
+  width:70px;
+  color: #fff;
+  background-color: var(--main);
+}
+.email-bar input{
+  padding: 0.5rem;
+  width:100%;
+  height: 40px;
+  border: 2px  solid var(--main);
+}
+.image-circle{
+  background-color: #777;
+
+  
+  margin:1rem auto;
+  height:50px;
+  width:50px;
+  border-radius:50%;
+
+}
+.image-circle .fa-plus{
+position: relative;
+left:15px;
+top: -10px;
+}
+.image-circle img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.edit-info{
+  display: none;
+  width:70%;
+  padding: 1rem;
+  margin: 2rem auto;
+  z-index: 2000;
+  background-color: white;
+  position: absolute;
+  top:8rem;
+}
+.btn-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+.visually-hidden {
+  position: absolute !important;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  clip-path: circle( 50px at 0 100px);
+}
+
+input.visually-hidden:is(:focus, :focus-within,:hover) + label {
+  outline: thin dotted;
+}
+#editForm{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width:800px){
+  #menu-btn{
+    display: none;
+  }
+  .student-info{
+    display: flex;
+    flex-direction: column ;
+    gap:1rem;
+     width:60%;
+     margin:2rem auto;
+     
+  }
+  .image-circle{
+    background-color: #777;
+    height:100px;
+    width:100px;
+    border-radius:50%;
+  
+    
+  }
+  .image-circle img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+ 
+  .student-info p{
+    font-size: 2rem;
+  }
+.image-circle .fa-user{
+  font-size: 3rem;
+  text-align: center;
+}
+.image-circle .fa-plus{
+  position: relative;
+  left:20px;
+  top: -5px;
+  }
+  .edit-info{
+    display: none;
+    width:50%;
+    height:100%;
+    padding: 2rem;
+    top:12rem;
+    left: 25rem;
+    
+  }
+  #uplabel{
+  
+    margin-left:1.5rem;
+  }
+}
+.action-msg{
+  z-index: 5000;
+  position: absolute;
+  
+  top: 10rem;
+}
+table{
+  table-layout: fixed;
+  width:100%;
+}
+td{
+  padding:10px;
+  text-align: justify;
+}
+@media (min-width:900px){
+  .action-msg{
+   
+    
+    top: 12rem;
+  }
+}
+.vidlec{
+  display:none;
+  width:400px;
+  height:200px;
+}
+
+@media (min-width:800px){
+  .vidlec{
+    width:600px;
+    height:400px;
+  }
+  .vcolumns{
+    display: grid;
+    grid-template-columns: 40% 50%;
+  }
+  .gcolumns{
+    display: grid;
+    grid-template-columns: 30% 45% 20%;
+      gap:2rem;
+  }
+}
+
+

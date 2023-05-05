@@ -29,9 +29,9 @@ const addlectures=  async (req,res)=>{
     const allLectures=  async (req,res)=>{
             try{
             const records= await Lectures.find({ },{_id:0,title:1,duration:1})
-            res.json(records)
+            res.render('lectures',{data:records})
             }catch(error){
-                res.json("An error Occured")
+                res.render('error',{errorCode:'404',errorMsg:"Server Error"})
             }
         
             }

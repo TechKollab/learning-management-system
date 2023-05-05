@@ -11,6 +11,7 @@ const studentSchema= new Schema({
     email:{type:String,unique:true},
     password:String,
     dateofbirth:String,
+    imageurl:String,
     salt:String,
     
     
@@ -33,8 +34,9 @@ const studentSchema= new Schema({
     description:String,
     startDate:Date,
     endDate:Date,
-    coursecode:Number,
-    Lecturers:{type:mongoose.Schema.Types.ObjectId, ref:"Lecturer" }
+    numLectures:String,
+    imgurl:String,
+    Lecturers:[{type:mongoose.Schema.Types.ObjectId, ref:"Lecturer" }]
     
     
     })
@@ -42,6 +44,9 @@ const studentSchema= new Schema({
     const courseRegistration= new Schema({
       Student:{type:mongoose.Schema.Types.ObjectId, ref:"Student" },
       CourseTitle: String,
+      description:String,
+      CourseId:{type:mongoose.Schema.Types.ObjectId, ref:"Courses" }
+      
 
     })
     
@@ -64,7 +69,8 @@ const studentSchema= new Schema({
     resource_url:[],
     video_url:[ ],
     coursecode:Number,
-    lecturer:[{type:mongoose.Schema.Types.ObjectId, ref:"Lecturer" }]
+    lecturer:[{type:mongoose.Schema.Types.ObjectId, ref:"Lecturer" }],
+    CourseId:{type:mongoose.Schema.Types.ObjectId, ref:"Courses" }
     
     })
     
@@ -72,7 +78,8 @@ const studentSchema= new Schema({
     const assessmentSchema= new Schema({
          questions:[ ],
          Instruction:String,
-         lectureId:{type:mongoose.Schema.Types.ObjectId, ref:"lecture" }
+         lectureId:{type:mongoose.Schema.Types.ObjectId, ref:"lecture" },
+         CourseId:{type:mongoose.Schema.Types.ObjectId, ref:"Courses" }
          
     })
     
@@ -80,9 +87,15 @@ const studentSchema= new Schema({
     scores: Number,
     lectureId:[{type:mongoose.Schema.Types.ObjectId, ref:"Lecture" }],
     examDate:Date,
-    studentId:[{type:mongoose.Schema.Types.ObjectId, ref:"Student" }]
+    studentId:{type:mongoose.Schema.Types.ObjectId, ref:"Student" }
     })
-    
+    const progressSchema= new Schema({
+      CourseId: {type:mongoose.Schema.Types.ObjectId, ref:"Student" },
+      lectureId:[{type:mongoose.Schema.Types.ObjectId, ref:"Lecture" }],
+      studentId:{type:mongoose.Schema.Types.ObjectId, ref:"Student" }, 
+      LecturesCompleted:Number
+      })
+      
     const paymentSchema = new Schema(
     {
     amount:Number,

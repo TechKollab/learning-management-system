@@ -1,0 +1,52 @@
+
+        
+        <%- include('./partials/loginheader') %>
+    <article class="container">
+      <%- include('./partials/sidebar') %>
+      <section class="main-container">
+
+         <div class="section-header">
+          <h3>Hi <%= firstname %></h3>  
+         </div>
+      <main>
+        <h2><%= coursetitle %></h2>
+        <div class="main-boxes">
+         
+          <% if (lectures.length >= 1 ) {%>
+         
+              <% lectures.forEach(function(lecture,index){%>
+                <div class="vcolumns"> 
+              <div>
+                <a href="#" onclick="playLecture(`<%=lecture.video_url %>`)"> Start Lecture <%= index+1 %></a> 
+              </div>
+              <div class="videocon"><iframe src=" " controls class="vidlec"></iframe></div>
+            </div> 
+              <%});%>
+              
+             
+            
+          <%} else {%>
+            <h5>You dont have any lectures on <%= coursetitle %> </h5>
+           
+
+          <%}%>
+        
+      </div>
+     </main>
+      </section>
+      <!--<section>
+      </section>-->
+    </article>
+    <script src="/js/main.js"></script>
+    <script>
+      const playLecture=(url)=>{
+        const vid=document.querySelector(".vidlec")
+        vid.style.display='block'
+        vid.setAttribute("src",`${url}`)
+      }
+    </script>
+  </body>
+</html>
+
+
+ 

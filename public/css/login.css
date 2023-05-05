@@ -1,0 +1,156 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+article {
+  width: 100%;
+  height: 100%;
+  background-color: #d3d9db;
+  padding-top: 50px;
+}
+.box {
+  width: 100%;
+  height: 673px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 45px;
+  border-radius: 8px;
+}
+.box h2 {
+  text-align: center;
+}
+.box-head {
+  font-size: 12px;
+  margin-left: 2%;
+}
+.box input {
+  width: 100%;
+  height: 52px;
+  background-color: #f3f3f3;
+  border: solid 1px #cccccc;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.box button {
+  width: 100%;
+  height: 56px;
+  background-color: #192d33;
+  border-radius: 8px;
+  color: #ffff;
+  font-size: 16px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+  border: none;
+}
+.box button:hover {
+  cursor: pointer;
+}
+.login-or {
+  position: relative;
+  font-size: 18px;
+  color: #7777;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.span-or {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: -1px;
+  margin-left: -25px;
+  background-color: #fff;
+  width: 50px;
+  text-align: center;
+}
+.hr-or {
+  background-color: #cdcdcd;
+  height: 1px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.google-bar,
+.facebook-bar {
+  width: 100%;
+  height: 58px;
+  border: solid 1.5px #000000;
+  text-align: center;
+  padding-top: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.google-bar a:link,
+.facebook-bar a:link {
+  text-decoration: none;
+  color: #000000;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+}
+.box-head {
+  width:80%;
+  margin:2px auto;
+  font-size: 14px;
+  text-align: center;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+.message{
+  color: red;
+  text-align: center;
+}
+@media (min-width:600px){
+  .box-head {
+    font-size: 16px;
+    width:60%;
+  margin:2px auto;
+    text-align: center;
+  }
+}
+@media (min-width:800px){
+
+  .box {
+    width: 60%;
+    height: 673px;
+    margin: 4rem auto;
+}
+.message{
+  color: red;
+  text-align: center;
+}
+}
+@media (min-width:1000px){
+  .box {
+    width: 30%;
+    height: 673px;
+    margin: 4rem auto;
+}
+}
+

@@ -1,4 +1,13 @@
-import bootstrap from 'bootstrap'
-   const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
-  const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
 
+   const dropdown = document.querySelector('.dropdown-toggle')
+
+dropdown.addEventListener('click',(event)=>{
+const dropdownMenu=document.querySelector('.dropdown-menu')
+ console.log(dropdownMenu.style.display)
+   dropdownMenu.style.display='block'
+
+
+
+
+
+})

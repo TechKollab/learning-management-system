@@ -1,6 +1,10 @@
 import {Student} from "../model/schema.js"
 import Validator from "../module/validator.js"; 
 import { setPassword,validPassword } from "../module/authentication.js";
+import * as fs from "node:fs"
+import {open} from "node:fs/promises"
+import { Buffer } from "buffer";
+import path from 'path'
 const validate= new Validator();
 const register=  async (req,res)=>{
     const email=req.body.email
@@ -9,9 +13,9 @@ const register=  async (req,res)=>{
     const pwd=req.body.password
     if(!validate.validateEmail(email))
     {
-      return  res.json("Invalid Email")
+      return  res.render('register',{title:'Login',message:"Invalid Email"})
     }else if(!validate.validatePwd(pwd)){
-       return  res.json("Invalid Password")
+       return   res.render('register',{title:'Login',message:"Invalid Password"})
 
     }
     else{
@@ -27,11 +31,12 @@ const register=  async (req,res)=>{
                student.salt=setParams.salt
              student.save((err,Student)=>{
                if(err){
-                res.json("Unable to register Student")
-                console.log(err)
+                res.render('register',{title:'Login',message:"Unable to register Student"})
+              
                }
                else{
-                res.json("Student Succesfully Added")
+                
+                res.render('register',{title:'Login',message:"Student Succesfully Added"})
                }
              });
             
@@ -40,7 +45,8 @@ const register=  async (req,res)=>{
         
        }
        else{
-          res.json("Email has been used");
+        res.render('register',{title:'Login',message:"Email in use"})
+          
        }
     }
     
@@ -66,19 +72,39 @@ const register=  async (req,res)=>{
         
             }
             const updateStudent=  async (req,res)=>{
-                const id= req.body.id
-                const {firstname,lastname,gender,email,password,dateofbirth}=req.body
+
+                const id= req.session.user.studentId
+                const firstname=req.body.firstname
+                const lastname=req.body.lastname
+                const gender=req.body.gender
+                const dateofbirth=req.body.dateofbirth  
+                const imgurl=req.body.imgurl
+                const file=req.body.userpic
+               
                 
-                try{
-                const records= await Student.updateOne({email:"eyitayoit@gmail.com"},{firstname:firstname,
-                    lastname:lastname,gender:gender,email:email,password:password,dateofbirth:dateofbirth})
-                res.json(records)
-                }catch(error){
-                    console.log(error)
-                    res.json("An error Occured")
-                }
+                
+              
+                   
+             
+               
+               
             
+                try{
+                const records= await Student.updateOne({_id:id},{firstname:firstname,
+                    lastname:lastname,gender:gender,dateofbirth:dateofbirth,imageurl:imgurl})
+                if(records){
+                    res.redirect("/studentaccount")
+                       
+                     }
+                    
+                
+                   
+                }catch(error){
+                
+                    res.render('error',{errorMsg:"An error Occured",errorCode:error.STATUS})
                 }
+                  
+            }
                 const deleteStudent=  async (req,res)=>{
                     const email= req.body.email
             
@@ -96,38 +122,58 @@ const register=  async (req,res)=>{
                         const pwd=req.body.password
                         if(!validate.validateEmail(email))
                         {
-                          return  res.json("Invalid Email")
+                            res.render('login',{
+                            title:'login',message:"Invalid email"
+                        })
                         }else if(!validate.validatePwd(pwd)){
-                           return  res.json("Invalid Password")
+                        res.render('login',{
+                            title:'login',message:"Invalid Password"
+                        })
                     
                         }
                         else{
-                           const student= await Student.find({email:email})
+                           const student= await Student.findOne({email:email}).exec()
                           
-                                       if(!student){
+                                       if(!student.email){
                                             
                                             res.render('login',{
-                                                title:'login',message:"Student does not exist"
+                                                title:'login',message:"Incorrect Email"
                                             })
                                         }
                                         else{
-                                            const [result]= student
-                                            if(validPassword(pwd,result.password,result.salt)){
-                                               req.session.user=result.firstname
+                        
+                                            if(validPassword(pwd,student.password,student.salt)){
+
+                                               req.session.user={firstname:student.firstname,studentId:student._id,imgurl:student.imageurl}
+                                              
                                                req.session.role="Student"
                                                res.redirect('/dashboard')
                                             }
                                             else{
-                                                res.render('login',{title:'login',message:'Password does not match'})
+                                                res.render('login',{title:'login',message:'Incorrect Password '})
                                             }
                                         }
                                      }
                                      
                             }
                     
-                        
+        const getAccount= async(req,res)=>{
+            try{
+            const id=req.session.user.studentId
+            const imgurl=req.session.user.imgurl
+           const studentaccount= await Student.findOne({_id:id})
+           
+                res.render('account',{title:'Account',firstname:req.session.user.firstname,studentInfo:studentaccount,imgurl})
+            
+           }
+    
+            catch(error){
+                console.log(error)
+                res.render('error',{errorCode:'404',errorMsg:"Server Error"})
+            }
+        }   
                     
-
+    
     export {
         register,
         viewStudent,
@@ -135,6 +181,6 @@ const register=  async (req,res)=>{
         updateStudent,
         deleteStudent,
         loginStudent,
+        getAccount
     }
 
-    

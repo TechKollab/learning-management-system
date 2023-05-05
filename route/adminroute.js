@@ -3,7 +3,7 @@ const adminroute=express.Router();
 import {registerLecturer,viewLecturer,allLecturer,updateLecturer,deleteLecturer} from '../admincontroller/lecturer.js';
 
 adminroute.get("/",(req,res)=>{
-    res.json("Welcome to LMNS")
+    res.render('adminlogin',{title:"Admin Login"})
 });
 adminroute.post("/register",registerLecturer)
 adminroute.get("/lecturer/:email",viewLecturer)

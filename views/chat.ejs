@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Room</title>
+    
+   <link rel="stylesheet" href="/css/chat.css">
+</head>
+<body>
+    <ul  id="messages"></ul>
+    <ul  id="remessages"></ul>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" />
+      <button type="submit">Send</button>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  var messages = document.getElementById('messages');
+  var remessages = document.getElementById('remessages');
+  var form = document.getElementById('form');
+  var input = document.getElementById('input');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) {
+        
+
+      socket.emit('chat message', input.value);
+      
+    
+    const dateTime= new Date()
+        const timeM= `${dateTime.getHours()}: ${dateTime.getMinutes()}`
+      var sendMsg=document.createElement('li');
+      sendMsg.innerHTML=`<p>${input.value}<p>
+        <p>${timeM}</p>`
+      messages.appendChild(sendMsg);
+     
+    input.value = '';
+    }
+})
+socket.on('chat message', function(msg,tmt) {
+    var receivedMsg = document.createElement('li');
+   
+    receivedMsg.innerHTML = `<p>${msg}</p><p>${tmt}</p>`;
+  
+    remessages.appendChild(receivedMsg);
+    
+    window.scrollTo(0, document.body.scrollHeight);
+  })
+</script>
+</body>
+
+</html>

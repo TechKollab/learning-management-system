@@ -1,30 +1,40 @@
 <%- include('./partials/loginheader') %>
-<div class="container-fluid">
+    <article class="container">
+      <%- include('./partials/sidebar') %>
+      <section class="main-container">
 
-  
-<section class="dropdown">
-   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Menu
-    </a>
- 
- 
- <ul class="dropdown-menu">
-   <li class="dropdown-item profile-pic">
-     
-   </li>
-   <li class="dropdown-item username"><%= firstname %></l>
- 
-    <li class="dropdown-item"><a href="" class="fa fa-pencil-square-o">Classes</a></li>
-    <li class="dropdown-item"><a class="fa fa-users">Group</a></li>
-    <li class="dropdown-item"><a href="#" class="fa fa-calendar">Schedule</a></li>
-    <li class="dropdown-item"> <a href="#" class="fa fa-bar-chart">Grades</a></li>
-    <li class="dropdown-item"><a class="fa fa-download">Download</a></li>
-    <li class="dropdown-item"><a class="fa fa-sign-out">Logout </a></li>
- </ul>
- 
-</section>
-</div>
-<script src="/js/dropdown.js">
-   
-</script>
+         <div class="section-header">
+          <h3>Hi <%= firstname %></h3>  
+         </div>
+      <main>
+        <h3>Your Courses</h3>
+        <div class="main-boxes">
 
+          <% if (courses.length >= 1 ) {%>
+            <div class="courselist">
+              <div class="gcolumns">
+              <p>Title</p> <p>Course Description</p> <p>Number of Lectures</p>
+            </div>
+              <% courses.forEach(function(course){%>
+                
+            <div class="gcolumns">
+                 <p><a href="/lectures/<%= course.title %>/<%= course._id %>"><%= course.title %></a></p><p><%=  course.description %></p><p><%= course.numLectures %></p></li>
+                </div>
+                 <%});%>
+                
+              </div> 
+          <%} else {%>
+            <h2>You have not register for any courses. Please Register <a href="/courses">Here</a></h2>
+           
+
+          <%}%>
+        
+      </div>
+     </main>
+      </section>
+      <!--<section>
+      </section>-->
+    </article>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

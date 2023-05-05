@@ -1,3 +1,4 @@
+
   import * as dotenv from 'dotenv'
   import path from 'path'
   import express from 'express'
@@ -7,8 +8,10 @@
   import {connectToDb} from './model/connection.js'
   import mongoStore from 'connect-mongo'
 
-  dotenv.config();
+dotenv.config();
+  
   const app= express()
+ 
   app.use(express.json())
   app.use(express.urlencoded({extended:false}))
   app.set('views', './views');
@@ -26,13 +29,18 @@
   app.use("/",route)
   app.use(express.static('./public'));
   const port= process.env.PORT||3088
+
+
+ 
+  connectToDb();
   app.use((req, res, next) => {
-    res.status(404).send("Sorry can't find that!")
+  
+    res.render("error",{errorCode:'404',errorMsg:"Web page Not Availaible"})
   })
   app.use((err,req,res,next)=>{
 if(err){
-    res.status(500).send("Something broke")
-    console.log(err)
+  console.log(err)
+  res.render("error",{errorCode:'500',errorMsg:"Server Error"})
 }
 
   })
@@ -40,4 +48,3 @@ if(err){
 
     console.log(`Server is running on port: ${port}`);
   });
-  connectToDb();

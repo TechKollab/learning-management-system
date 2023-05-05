@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/login.css" rel="stylesheet" />
+    <title>Login</title>
+  </head>
+  <body>
+    <section class="login-container">
+        <div id="message"><%= message %></div>
+      <div class="box">
+        <form method="POST" action="/adminlogin">
+        <h2>Login</h2>
+        <span class="box-head"
+          >Kindly fill your details to access your account</span
+        >
+        <div class="email-bar">
+          <h4>Email <strong style="color: red">*</strong></h4>
+          <input type="email" name="email" id="email" required/>
+        </div>
+        <div class="password-bar">
+          <h4>Password <strong style="color: red">*</strong></h4>
+          <input type="password" name="password" required="true" />
+          <p><a href="/forgot-password" >Forgot password?</a></p>
+        </div>
+        <button type="submit">Login</button></a>
+      </form>
+        <div class="login-or">
+    
+      
+    </section>
+  </body>
+</html>
