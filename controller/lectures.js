@@ -18,7 +18,7 @@ import {Assessment, Lectures} from "../model/schema.js"
         
         try{
     
-            const lecture= await Lectures.find({title:coursetitle})
+            const lecture= await Lectures.find({CourseID:id})
             
             res.render('lectures',{lectures:lecture,title:"Lectures",firstname:req.session.user.firstname,  imgurl:req.session.user.imgurl,    coursetitle})
             }catch(error){
