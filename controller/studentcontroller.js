@@ -134,7 +134,7 @@ const register=  async (req,res)=>{
                         else{
                            const student= await Student.findOne({email:email}).exec()
                           
-                                       if(!student.email){
+                                       if(!student){
                                             
                                             res.render('login',{
                                                 title:'login',message:"Incorrect Email"
