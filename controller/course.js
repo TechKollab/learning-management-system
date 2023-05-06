@@ -25,14 +25,14 @@ const {escapeStringRegexp2}=escapeStringRegexp
 
             }
        
-                const registerCourse=(req,res)=>{
+                const registerCourse= async(req,res)=>{
                     
                     const studentId= req.session.user.studentId;
                     const title=req.params.title
                     const courseId=req.params.id
                     
                     try{
-                    const coursereg= CourseReg.findOne({$and:[{CourseTitle:title},{Student:studentId}]})
+                    const coursereg=await CourseReg.findOne({$and:[{CourseTitle:title},{Student:studentId}]})
                     if(coursereg){
                         res.json("You are already registered for the Course")
                     }
