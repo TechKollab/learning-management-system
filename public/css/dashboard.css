@@ -354,7 +354,7 @@ input.visually-hidden:is(:focus, :focus-within,:hover) + label {
      
   }
   .image-circle{
-    background-color: #777;
+ 
     height:100px;
     width:100px;
     border-radius:50%;
