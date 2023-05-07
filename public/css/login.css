@@ -123,6 +123,10 @@ textarea {
   resize: none;
 }
 .message{
+  color: green;
+  text-align: center;
+}
+.success{
   color: red;
   text-align: center;
 }
