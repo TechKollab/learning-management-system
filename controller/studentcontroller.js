@@ -36,7 +36,7 @@ const register=  async (req,res)=>{
                }
                else{
                 
-                res.render('register',{title:'Login',message:"",success:" Student account succesfully Created"})
+                res.render('register',{title:'Login',message:"",success:" Student account succesfully Created,Login to Proceed"})
                }
              });
             
