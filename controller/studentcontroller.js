@@ -13,9 +13,9 @@ const register=  async (req,res)=>{
     const pwd=req.body.password
     if(!validate.validateEmail(email))
     {
-      return  res.render('register',{title:'Login',message:"Invalid Email"})
+      return  res.render('register',{title:'Login',message:"Invalid Email",success:" "})
     }else if(!validate.validatePwd(pwd)){
-       return   res.render('register',{title:'Login',message:"Invalid Password"})
+       return   res.render('register',{title:'Login',message:"Invalid Password",success:" "})
 
     }
     else{
@@ -31,12 +31,12 @@ const register=  async (req,res)=>{
                student.salt=setParams.salt
              student.save((err,Student)=>{
                if(err){
-                res.render('register',{title:'Login',message:"Unable to register Student"})
+                res.render('register',{title:'Login',message:"Unable to register Student",success:" "})
               
                }
                else{
                 
-                res.render('register',{title:'Login',message:"Student Succesfully Added"})
+                res.render('register',{title:'Login',message:"",success:" Student account succesfully Created"})
                }
              });
             
@@ -45,7 +45,7 @@ const register=  async (req,res)=>{
         
        }
        else{
-        res.render('register',{title:'Login',message:"Email in use"})
+        res.render('register',{title:'Login',message:"Email in use",success:" "})
           
        }
     }
