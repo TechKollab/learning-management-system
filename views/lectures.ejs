@@ -16,7 +16,7 @@
          
               <% lectures.forEach(function(lecture,index){%>
                 <div class="vcolumns"> 
-              <div>
+              <div class="linkcolumns">
                 <a href="#" onclick="playLecture(`<%=lecture.video_url %>`)"> Start Lecture <%= index+1 %></a> 
               </div>
               <div class="videocon"><iframe src=" " controls class="vidlec"></iframe></div>
