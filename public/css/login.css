@@ -123,11 +123,11 @@ textarea {
   resize: none;
 }
 .message{
-  color: green;
+  color: red;
   text-align: center;
 }
 .success{
-  color: red;
+  color: green;
   text-align: center;
 }
 @media (min-width:600px){
