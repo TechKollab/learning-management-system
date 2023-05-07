@@ -29,7 +29,8 @@ route.get('/login', (req, res) => {
 route.get('/register', (req, res) => {
     res.render('register', {
         title: "Register EasyLearn",
-        message: ""
+        message: "",
+        success:" "
     })
 })
 route.get('/about', (req, res) => {
