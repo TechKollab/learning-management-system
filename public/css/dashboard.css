@@ -426,8 +426,9 @@ td{
     height:400px;
   }
   .vcolumns{
-    display: grid;
-    grid-template-columns: 40% 50%;
+    display: row;
+    flex-direction:row;
+    gap:2rem;
   }
   .gcolumns{
     display: grid;
