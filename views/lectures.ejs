@@ -13,17 +13,17 @@
         <div class="main-boxes">
          <div class="lecturebox">
           <% if (lectures.length >= 1 ) {%>
-         
+             <div class="vcolumns">
               <% lectures.forEach(function(lecture,index){%>
-                <div class="vcolumns"> 
+               
               <div>
                 <a href="#" onclick="playLecture(`<%=lecture.video_url %>`)"> Start Lecture <%= index+1 %></a> 
               </div>
               
-            </div> 
+             
               <%});%>
               
-             
+             </div>
             
           <%} else {%>
             <h5>You dont have any lectures on <%= coursetitle %> </h5>
