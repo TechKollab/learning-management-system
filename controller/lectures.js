@@ -3,11 +3,11 @@ import {Assessment, Lectures} from "../model/schema.js"
 
 
     const viewLectures=  async (req,res)=>{
-    
+        const title=req.params.title
         const id=req.params.id
         try{
             const records= await Lectures.findOne({_id:id },{_id:1,title:1,duration:1})
-            res.render('lectures',{lectures:records})
+            res.render('lectures',{lectures:records,title:"Lectures",firstname:req.session.user.firstname,  imgurl:req.session.user.imgurl,    coursetitle})
             }catch(error){
                 res.render('error',{errorCode:'404',errorMsg:"Server Error"})
             }
