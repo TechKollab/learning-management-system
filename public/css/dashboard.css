@@ -438,8 +438,8 @@ td{
     height:400px;
   }
   .vcolumns{
-    display: row;
-    flex-direction:row;
+    display: flex;
+    flex-direction:column;
     gap:2rem;
   }
   .gcolumns{
