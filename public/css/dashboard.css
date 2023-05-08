@@ -427,6 +427,8 @@ td{
     
     top: 12rem;
   }
+  .image{
+    height:40vh;
 }
 .vidlec{
   display:none;
