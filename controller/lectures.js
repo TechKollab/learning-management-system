@@ -13,12 +13,12 @@ import {Assessment, Lectures} from "../model/schema.js"
             }
         }
     const allLectures=  async (req,res)=>{
-        const coursetitle=req.params.title
+        const title=req.params.title
         const id=req.params.id
         
         try{
     
-            const lecture= await Lectures.find({CourseID:id})
+            const lecture= await Lectures.find({title:title})
             
             res.render('lectures',{lectures:lecture,title:"Lectures",firstname:req.session.user.firstname,  imgurl:req.session.user.imgurl,    coursetitle})
             }catch(error){
