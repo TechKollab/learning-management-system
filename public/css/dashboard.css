@@ -148,6 +148,14 @@ a.btn{
 .image{
   height: 30vh;
 }
+.lecturebox{
+  display:flex;
+  flex-direction:column;
+}
+.vcolumns{
+  display:flex;
+  flex-direction:column;
+}
 @media (min-width:900px){
 
   .navbar{
@@ -238,6 +246,10 @@ main{
     flex-direction: row;
     justify-content: space-between;
   }
+  .lecturebox{
+  display:flex;
+  flex-direction:row;
+}
   .box-con{
     width:100%;
   }
