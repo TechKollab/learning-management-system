@@ -35,7 +35,7 @@ route.get('/register', (req, res) => {
 })
 route.get('/about', (req, res) => {
     res.render('about', {
-        title: "Register EasyLearn",
+        title: "About",
         message: ""
     })
 })
