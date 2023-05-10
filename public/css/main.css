@@ -457,8 +457,15 @@ border-radius: 4rem;
 }
 .footer .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+}
+@media (min-width:1000px){
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
 }
 .footer .box-container .box h3{
     font-size: 2rem;
