@@ -228,10 +228,19 @@ width: 100% ;
 .icons-container{
     display: flex;
     gap: 1rem;
-    flex-flow:row-wrap;
+    flex-direction:column;
     padding-top:2rem ;
     padding-bottom: 2rem;
     background: #ebf2f5;
+}
+@media (min-width:800px){
+       display: grid;
+    gap: 1rem;
+    grid-template-columns:50% 50%;
+    padding-top:2rem ;
+    padding-bottom: 2rem;
+    background: #ebf2f5;
+    
 }
 .icons-container .icons{
     border: var(--border);
