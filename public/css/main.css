@@ -226,9 +226,9 @@ width: 100% ;
 /* icons section starts */
 
 .icons-container{
-    display: grid;
+    display: flex;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    flex-flow:row-wrap;
     padding-top:5rem ;
     padding-bottom: 5rem;
     background: #ebf2f5;
