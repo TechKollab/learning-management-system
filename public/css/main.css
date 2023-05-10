@@ -299,8 +299,16 @@ width: 100% ;
 width: 100% ;
 }
 @media (min-width:800px){
+    
+    .accessibility{
+    display: flex;
+        flex-direction:row;
+    
+    gap: 1.5rem;
+    padding-top: 10rem;
+}
   .accessibility .image img{
-width: 100% ;
+width: 30% ;
       height:50vh;
 }  
     
