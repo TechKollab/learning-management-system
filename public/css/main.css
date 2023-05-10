@@ -234,13 +234,14 @@ width: 100% ;
     background: #ebf2f5;
 }
 @media (min-width:800px){
+    .icons-container{
      display: grid;
     gap: 1rem;
     grid-template-columns:repeat(2,1fr);
     padding-top:2rem ;
     padding-bottom: 2rem;
     background: #ebf2f5;
-    
+    }
 }
 .icons-container .icons{
     border: var(--border);
