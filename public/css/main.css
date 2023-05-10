@@ -312,7 +312,7 @@ width: 100% ;
 }  
   
 .accessibility .content h3{
-    font-size:1rem ;
+    font-size:2rem ;
     color: var(--main);
   
     text-shadow:  var(--text-shadow);
