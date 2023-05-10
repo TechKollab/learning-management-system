@@ -336,9 +336,16 @@ width: 100% ;
     background: #ebf2f5;
 }
 .popular_courses .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    display: flex;
+    flex-direction:column;
     gap: 2rem;
+}
+@media (min-width:800px){
+.popular_courses .box-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
 }
 .popular_courses .box-container .box{
     
