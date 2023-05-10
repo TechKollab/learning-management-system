@@ -304,7 +304,7 @@ width: 100% ;
     display: grid;
        grid-template-columns:1fr 1fr;
     
-    padding-top: 10rem;
+    padding-top: 2rem;
 }
   .accessibility .image img{
 width: 100% ;
@@ -314,13 +314,13 @@ width: 100% ;
 .accessibility .content h3{
     font-size:1rem ;
     color: var(--main);
-    line-height: 1;
+  
     text-shadow:  var(--text-shadow);
 }
 .accessibility .content p{
     font-size:1rem ;
     color: var(--light-color);
-    line-height: 1;
+    
     padding: 1rem 0 ;
 }
 
