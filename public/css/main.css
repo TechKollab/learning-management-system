@@ -298,6 +298,13 @@ width: 100% ;
 .accessibility .image img{
 width: 100% ;
 }
+@media (min-width:800px){
+  .accessibility .image img{
+width: 100% ;
+      height:50vh;
+}  
+    
+}
 .accessibility .content{
     flex:1 1 45rem;
 }
